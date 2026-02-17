@@ -1308,6 +1308,9 @@ struct libusb_transfer * LIBUSB_CALL libusb_alloc_transfer(
 	usbi_mutex_init(&itransfer->lock);
 	struct libusb_transfer *transfer = USBI_TRANSFER_TO_LIBUSB_TRANSFER(itransfer);
 
+	/* ADD THIS LINE: Set default timeout to 0 (unlimited) */
+	transfer->timeout = 0;
+
 	return transfer;
 }
 
